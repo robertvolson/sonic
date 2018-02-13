@@ -19,10 +19,10 @@ import java.io.Serializable;
  * @author Joe Blow
  * @version 1.0
  */
-public class Item implements  Serializable{
-	//Item class must be serializable
+public class Item implements Serializable {
+	// Item class must be serializable
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer key;
 	private String name;
 	private float price;
@@ -44,16 +44,16 @@ public class Item implements  Serializable{
 	public float getPrice() {
 		return price;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return key.hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
-		Item item = (Item)o;
-		
+		Item item = (Item) o;
+
 		return key.equals(item.getKey());
 	}
 }

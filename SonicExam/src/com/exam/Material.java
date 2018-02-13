@@ -28,7 +28,7 @@ public class Material implements OrderItem, Serializable {
 	}
 
 	@Override
-	public boolean getTaxable() {
+	public boolean isTaxable() {
 		return taxable;
 	}
 

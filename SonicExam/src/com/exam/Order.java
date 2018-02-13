@@ -21,7 +21,7 @@ import java.util.*;
  * @version 1.0
  */
 public class Order implements Serializable {
-	//Order class must be serializable
+	// Order class must be serializable
 	private static final long serialVersionUID = 1L;
 
 	private OrderItem[] orderItems;
@@ -41,7 +41,7 @@ public class Order implements Serializable {
 			orderTotal += price * numberItems;
 
 			// Check to see if order item is taxable
-			if (orderItem.getTaxable()) {
+			if (orderItem.isTaxable()) {
 				// if order item is taxable, add tax rate to total
 				orderTotal += price * taxRate * numberItems;
 			}
@@ -53,10 +53,10 @@ public class Order implements Serializable {
 	private float round(float num) {
 		// Multiply num by 100
 		num = num * 100;
-		
+
 		// Round num to nearest 1
 		int roundedNumInt = Math.round(num);
-		
+
 		// Divide back to float and return
 		return ((float) (roundedNumInt)) / 100;
 	}
@@ -68,13 +68,13 @@ public class Order implements Serializable {
 	 */
 	public Collection<String> getItems() {
 		ArrayList<String> itemNames = new ArrayList<String>();
-		
-		//Iterate through each orderItem, and add the item name to a list
+
+		// Iterate through each orderItem, and add the item name to a list
 		for (OrderItem orderItem : orderItems) {
 			String itemName = orderItem.getItem().getName();
 			itemNames.add(itemName);
 		}
-		//Sort, ignoring case
+		// Sort, ignoring case
 		itemNames.sort(String::compareToIgnoreCase);
 		return itemNames;
 	}
